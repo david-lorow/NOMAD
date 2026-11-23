@@ -20,7 +20,7 @@ class Speed(IntEnum):
     FORWARD_MED = 1545
     FORWARD_MAX = 1605
     STOP = 1515
-    REVERSE = 1455
+    REVERSE = 1425
 
 #Get user input
 def speed_select(user: str) -> Speed:

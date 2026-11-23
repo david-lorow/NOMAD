@@ -58,7 +58,7 @@ typedef struct Data {
 //Stop
 #define stop 1515
 //Reverse < 1515
-#define rev 1455
+#define rev 1425
 /*--------------------------------------------------------------------------------------*/
 
 /* USER CODE END PD */
