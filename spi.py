@@ -17,10 +17,10 @@ class Direction(IntEnum):
     LEFT_MAX = 1111
 
 class Speed(IntEnum):
-    FORWARD_MED = 1550
-    FORWARD_MAX = 1600
+    FORWARD_MED = 1545
+    FORWARD_MAX = 1605
     STOP = 1515
-    REVERSE = 1450
+    REVERSE = 1455
 
 #Get user input
 def speed_select(user: str) -> Speed:
@@ -68,13 +68,12 @@ try:
         
         #Loading
         while abs(d_current - d_target) > 0.01:
-            time.sleep(0.1) #Let 5 PWM cycles pass
-            d_current = read_only()
+            time.sleep(0.02) #1 PWM cycle passes
+            d_current = talk(d_target)
             print(f"Current speed: {d_current:.2f}")
             count+=1
-            if (count > 15):
-                print("Error encountered, resending...")
-                d_current = talk(d_target)
+            if (count > 5):
+                print("Over 5")
                 count = 0
         print(f"Target met: {d_current:.2f}")
 

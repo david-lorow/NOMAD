@@ -52,13 +52,13 @@ typedef struct Data {
 #define l_max 1111
 
 //Forward - Medium speed
-#define f_med 1550
+#define f_med 1545
 //Fast speed
-#define f_max 1600
+#define f_max 1605
 //Stop
 #define stop 1515
 //Reverse < 1515
-#define rev 1450
+#define rev 1455
 /*--------------------------------------------------------------------------------------*/
 
 /* USER CODE END PD */
@@ -243,11 +243,11 @@ void SystemClock_Config(void)
 	  float error = session_data->d_target - session_data->d_current;
 	  if (error == 0) return;
 	  if(error > 0) {
-		  session_data->d_current++;
+		  session_data->d_current+=30;
 		  ESC_SetPWM(session_data->d_current);
 	  }
 	  else {
-		  session_data->d_current--;
+		  session_data->d_current-=30;
 		  ESC_SetPWM(session_data->d_current);
 	  }
   }
